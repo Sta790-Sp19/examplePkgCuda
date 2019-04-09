@@ -18,6 +18,18 @@ BEGIN_RCPP
     return rcpp_result_gen;
 END_RCPP
 }
+// cublas_mat_mult2
+arma::mat cublas_mat_mult2(arma::mat const& A, arma::mat const& B);
+RcppExport SEXP _examplePkgCuda_cublas_mat_mult2(SEXP ASEXP, SEXP BSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< arma::mat const& >::type A(ASEXP);
+    Rcpp::traits::input_parameter< arma::mat const& >::type B(BSEXP);
+    rcpp_result_gen = Rcpp::wrap(cublas_mat_mult2(A, B));
+    return rcpp_result_gen;
+END_RCPP
+}
 // curand_rnorm
 std::vector<double> curand_rnorm(int n, int seed, double mu, double sigma);
 RcppExport SEXP _examplePkgCuda_curand_rnorm(SEXP nSEXP, SEXP seedSEXP, SEXP muSEXP, SEXP sigmaSEXP) {
@@ -89,6 +101,7 @@ END_RCPP
 
 static const R_CallMethodDef CallEntries[] = {
     {"_examplePkgCuda_cublas_mat_mult", (DL_FUNC) &_examplePkgCuda_cublas_mat_mult, 2},
+    {"_examplePkgCuda_cublas_mat_mult2", (DL_FUNC) &_examplePkgCuda_cublas_mat_mult2, 2},
     {"_examplePkgCuda_curand_rnorm", (DL_FUNC) &_examplePkgCuda_curand_rnorm, 4},
     {"_examplePkgCuda_cusolver_chol", (DL_FUNC) &_examplePkgCuda_cusolver_chol, 1},
     {"_examplePkgCuda_rcpp_hello_world", (DL_FUNC) &_examplePkgCuda_rcpp_hello_world, 0},

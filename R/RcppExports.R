@@ -5,6 +5,10 @@ cublas_mat_mult <- function(A, B) {
     .Call(`_examplePkgCuda_cublas_mat_mult`, A, B)
 }
 
+cublas_mat_mult2 <- function(A, B) {
+    .Call(`_examplePkgCuda_cublas_mat_mult2`, A, B)
+}
+
 curand_rnorm <- function(n, seed, mu, sigma) {
     .Call(`_examplePkgCuda_curand_rnorm`, n, seed, mu, sigma)
 }
